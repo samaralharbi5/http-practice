@@ -75,3 +75,9 @@ def test_perform_delete_request():
     assert response.status_code == 200
     assert response.request.method == 'DELETE'
     assert response.request.url == 'https://httpbin.org/delete'
+
+
+def test_7_perform_redirect_request():
+    location_header = perform_redirect_request()
+
+    assert location_header == '/get'
