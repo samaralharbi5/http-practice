@@ -11,9 +11,9 @@ def perform_get_request():
 
 def perform_get_request_with_params():
     """Perform GET request to given URL sending any parameter and return the response"""
-    url = 'https://httpbin.org/get?user_id=123'
+    url = 'https://httpbin.org/get'
 
-    response = requests.get(url)
+    response = requests.get(url, params={'user_id': '123'})
     return response
 
 
