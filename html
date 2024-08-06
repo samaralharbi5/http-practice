@@ -1,0 +1,60 @@
+import requests
+
+def test_1():
+    url = 'https://httpbin.org/get'
+    response = requests.get(url)
+    print(response.status_code)
+    print(response.headers)
+    print(response.text)
+import requests
+
+def test_2():
+    url = 'https://httpbin.org/get'
+    params = {'param1': 'value1', 'param2': 'value2'}
+    response = requests.get(url, params=params)
+    print(response.url)  # Shows the URL with parameters
+    print(response.status_code)
+    print(response.json())
+import requests
+
+def test_3():
+    url = 'https://httpbin.org/post'
+    data = {'key1': 'value1', 'key2': 'value2'}
+    response = requests.post(url, data=data)
+    print(response.status_code)
+    print(response.json())
+import requests
+
+def test_4():
+    url = 'https://httpbin.org/put'
+    data = {'key': 'value'}
+    response = requests.put(url, data=data)
+    print(response.status_code)
+    print(response.json())
+import requests
+
+def test_5():
+    url = 'https://httpbin.org/patch'
+    data = {'key': 'new_value'}
+    response = requests.patch(url, data=data)
+    print(response.status_code)
+    print(response.json())
+import requests
+
+def test_6():
+    url = 'https://httpbin.org/delete'
+    response = requests.delete(url)
+    print(response.status_code)
+    print(response.json())
+import requests
+
+def test_7():
+    url = 'https://httpbin.org/redirect/1'
+    response = requests.get(url, allow_redirects=True)
+    print(response.status_code)
+    print(response.history)  # Shows the list of responses before the final one
+    if response.history:
+        final_redirect = response.history[-1]
+        print(final_redirect.headers.get('Location'))
+pip install requests
+pytest tests.py -k test_1
